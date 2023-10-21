@@ -4,11 +4,13 @@ namespace Engine {
     bool    isLooping;
     int     fps = 0;
     std::unique_ptr<Window> window;
+    std::unique_ptr<Scene> scene;
 
     void start () {
         window = std::make_unique<Window>("GFX Engine", 1024, 768);
         if(window) {
             printOpenGLVersionInfo();
+            scene = std::make_unique<Scene>();
             loop();
         }
     }
@@ -31,8 +33,12 @@ namespace Engine {
 //                StateHandler::updateInformation();
 ////                glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 //                win.draw();
-            window->update(deltaTime);
-            window->draw();
+            window->refreshInput();
+
+            scene->input();
+            scene->update(deltaTime);
+            scene->draw();
+
             window->swapBuffers();
             frameCount++;
 

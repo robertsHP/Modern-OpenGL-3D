@@ -2,10 +2,11 @@
 
 namespace Engine {
     Window::Window(std::string name, int width, int height) {
+        Debug::log("INFO", "Opening window.");
+
         this->width = width;
         this->height = height;
 
-        Debug::log("INFO", "Opening window.");
         if(!this->initSDL()) {
             return;
         }
@@ -16,42 +17,6 @@ namespace Engine {
         if(!this->loadOpenGL(width, height)) {
             return;
         }
-
-        this->plainShader = std::make_shared<ShaderProgram>("default");
-
-        this->texture = std::make_shared<Texture>(
-            "gfx/stonewall.png",
-            GL_TEXTURE_2D,
-            GL_TEXTURE0,
-            GL_RGBA,
-            GL_UNSIGNED_BYTE);
-        this->texture->texUnit(this->plainShader, "tex0", 0);
-
-        // Vertices coordinates
-        GLfloat vertices[] =
-        { //     COORDINATES     /        COLORS      /   TexCoord  //
-            -0.5f, 0.0f,  0.5f,     1.0f, 1.0f, 1.0f,	0.0f, 0.0f,
-            -0.5f, 0.0f, -0.5f,     1.0f, 1.0f, 1.0f,	5.0f, 0.0f,
-             0.5f, 0.0f, -0.5f,     1.0f, 1.0f, 1.0f,	0.0f, 0.0f,
-             0.5f, 0.0f,  0.5f,     1.0f, 1.0f, 1.0f,	5.0f, 0.0f,
-             0.0f, 0.8f,  0.0f,     1.0f, 1.0f, 1.0f,	2.5f, 5.0f
-        };
-
-        // Indices for vertices order
-        GLuint indices[] =
-        {
-            0, 1, 2,
-            0, 2, 3,
-            0, 1, 4,
-            1, 2, 4,
-            2, 3, 4,
-            3, 0, 4
-        };
-
-        this->square = std::make_shared<Mesh>(
-            vertices, sizeof(vertices),
-            indices, sizeof(indices)
-        );
     }
     Window::~Window() {
         Debug::log("INFO", "Closing window.");
@@ -117,12 +82,8 @@ namespace Engine {
         glClearColor(0.1f, 0.6f, 0.1f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     }
-    void Window::update (float deltaTime) {
+    void Window::refreshInput () {
         this->input.update();
-        this->square->update(deltaTime);
-    }
-    void Window::draw () {
-        this->square->draw(this->plainShader, this->texture);
     }
     void Window::swapBuffers () {
         SDL_GL_SwapWindow(this->winPtr);

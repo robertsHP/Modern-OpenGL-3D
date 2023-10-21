@@ -9,6 +9,12 @@ namespace Engine {
 
         this->vao.init();
         this->vao.bind();
+//            std::vector<Vertex> finalVertices (vertAmount * Vertex.DEFAULT_SIZE);
+//
+//            for (int i = 0; i < vertAmount; i++) {
+//                finalVertices.push_back(vertices[i]);
+//            }
+
             this->vbo.init(vertices, vertAmount);
             this->ebo.init(indices, indAmount);
             this->vao.linkAttrib(this->vbo, 0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
@@ -30,10 +36,10 @@ namespace Engine {
         view = glm::mat4(1.0f);
         proj = glm::mat4(1.0f);
 
-        model = glm::rotate(model, glm::radians(this->rotation), glm::vec3(1.0f, 0.0f, 0.0f));
+        model = glm::rotate(model, glm::radians(this->rotation), glm::vec3(1.0f, 0.5f, 0.2f));
         view = glm::translate(view, glm::vec3(0.0f, 0.0f, -2.0f));
         proj = glm::perspective(
-            glm::radians(45.0f),
+            glm::radians(80.0f),
             (float) (Engine::window->width / Engine::window->height),
             0.01f,
             100.0f);
