@@ -1,7 +1,9 @@
 #ifndef TIMER_H
 #define TIMER_H
 
-#include "Includes.h"
+#include "SDL.h"
+
+#include "Global.h"
 #include "Debug.h"
 
 namespace Engine {

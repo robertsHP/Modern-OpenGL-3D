@@ -1,5 +1,10 @@
 #include "Debug.h"
 
+#include <iostream>
+#include <fstream>
+#include <ctime>
+#include <sstream>
+
 namespace Engine::Debug {
     std::string logText;
 

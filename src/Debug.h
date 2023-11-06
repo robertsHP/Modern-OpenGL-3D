@@ -1,7 +1,7 @@
 #ifndef DEBUG_H
 #define DEBUG_H
 
-#include "Includes.h"
+#include <string>
 
 #define _CODELOC_ __PRETTY_FUNCTION__
 

@@ -1,6 +1,8 @@
 #ifndef TEXTURECONTAINER_H
 #define TEXTURECONTAINER_H
 
+#include <vector>
+
 #include "Debug.h"
 #include "Texture.h"
 

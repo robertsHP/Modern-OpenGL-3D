@@ -1,6 +1,15 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
+#include <iostream>
+
+#include <windef.h>
+#include "SDL.h"
+#include "glad/gl.h"
+#include "GL/glu.h"
+#include "SDL_opengl.h"
+#include "SDL_image.h"
+
 #include "Debug.h"
 #include "Input.h"
 

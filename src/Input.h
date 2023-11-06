@@ -1,7 +1,10 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-#include "Includes.h"
+#include <vector>
+#include "SDL.h"
+
+#include "Global.h"
 
 namespace Engine {
     class Input {

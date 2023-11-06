@@ -1,5 +1,7 @@
 #include "TextureContainer.h"
 
+#include <stdexcept>
+
 namespace Engine {
     void TextureContainer::pushBack (std::shared_ptr<Texture> texture) {
         this->cont.push_back(texture);

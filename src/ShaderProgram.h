@@ -1,7 +1,13 @@
 #ifndef SHADERPROGRAM_H
 #define SHADERPROGRAM_H
 
-#include "Includes.h"
+#include <string>
+
+#include <windef.h>
+#include "glad/gl.h"
+#include "GL/glu.h"
+#include <glm/ext.hpp>
+
 #include "Debug.h"
 
 namespace Engine {

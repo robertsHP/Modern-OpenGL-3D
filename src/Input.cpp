@@ -1,6 +1,8 @@
 #include "Input.h"
 #include "Engine.h"
 
+#include <algorithm>
+
 namespace Engine {
     void Input::update () {
         if(!mouseEvents.empty())

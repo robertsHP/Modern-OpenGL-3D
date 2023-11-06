@@ -1,5 +1,8 @@
 #include "ShaderProgram.h"
 
+#include <fstream>
+#include <sstream>
+
 namespace Engine {
     ShaderProgram::ShaderProgram(const std::string name) {
         this->name = name;

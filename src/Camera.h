@@ -1,7 +1,8 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include "Includes.h"
+#include <memory>
+
 #include "Debug.h"
 #include "Input.h"
 #include "ShaderProgram.h"

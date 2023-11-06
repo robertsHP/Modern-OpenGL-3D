@@ -1,4 +1,6 @@
-#include "Includes.h"
+#include "Global.h"
+
+#include <random>
 
 namespace Func {
     int randRanged (int start, int end) {
