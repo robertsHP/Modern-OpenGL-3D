@@ -20,8 +20,11 @@ namespace Engine {
     }
     Window::~Window() {
         Debug::log("INFO", "Closing window.");
-        if(this->openGLContext) SDL_GL_DeleteContext(this->openGLContext);
-        if(this->winPtr) SDL_DestroyWindow(this->winPtr);
+        if(this->openGLContext) 
+            SDL_GL_DeleteContext(this->openGLContext);
+        if(this->winPtr) 
+            SDL_DestroyWindow(this->winPtr);
+
         SDL_QuitSubSystem(SDL_INIT_EVERYTHING);
         IMG_Quit();
         SDL_Quit();

@@ -3,7 +3,14 @@
 
 #include <string>
 
-#include <windef.h>
+#ifdef _WIN32
+    #include <windef.h>
+#elif __linux__
+    #include <stdint.h>
+#elif __APPLE__
+    #include <stdint.h>
+#endif
+
 #include "glad/gl.h"
 #include "GL/glu.h"
 #include <glm/ext.hpp>
