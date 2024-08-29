@@ -71,7 +71,7 @@ namespace Engine {
 
         this->openGLContext = SDL_GL_CreateContext(this->winPtr);
 
-        if (!gladLoaderLoadGL()) {
+        if (!gladLoadGL()) {
             Debug::log("ERROR", "Failed to initialize the OpenGL context.");
             return false;
         }

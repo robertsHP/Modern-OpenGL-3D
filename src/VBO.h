@@ -1,7 +1,7 @@
 #ifndef VBO_H
 #define VBO_H
 
-#include "glad/gl.h"
+#include "glad.h"
 
 namespace Engine {
     class VBO {

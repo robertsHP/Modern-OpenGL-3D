@@ -22,7 +22,7 @@ namespace Engine {
                 glTexParameteri(type, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
                 // Load, create texture and generate mipmaps
                 glTexImage2D(type, 0, GL_RGBA, this->width, this->height, 0, format, pixelType, surf->pixels);
-                glGenerateMipmap(type);
+                glad_glGenerateMipmap(type);
             glBindTexture(type, 0);
 
             SDL_FreeSurface(surf);

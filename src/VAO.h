@@ -1,7 +1,7 @@
 #ifndef VAO_H
 #define VAO_H
 
-#include "glad/gl.h"
+#include "glad.h"
 #include "VBO.h"
 
 namespace Engine {

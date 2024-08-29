@@ -1,7 +1,9 @@
 #ifndef VERTEX_H
 #define VERTEX_H
 
-#include "Includes.h"
+// #include "Includes.h"
+
+#include "glm/glm.hpp"
 
 namespace Engine {
     struct Vertex {
