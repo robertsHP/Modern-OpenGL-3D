@@ -6,10 +6,10 @@ namespace Engine {
     Scene::Scene() {
         Debug::log("INFO", "Loading scene.");
 
-        this->plainShader = std::make_shared<ShaderProgram>("default");
+        this->plainShader = std::make_shared<ShaderProgram>("textured");
 
         this->texture = std::make_shared<Texture>(
-            "gfx/btest.png",
+            "../gfx/stonewall.png",
             GL_TEXTURE_2D,
             GL_TEXTURE0,
             GL_RGBA,
@@ -31,7 +31,7 @@ namespace Engine {
             -0.5f, 0.0f, -0.5f,     1.0f, 1.0f, 1.0f,	5.0f, 0.0f,
              0.5f, 0.0f, -0.5f,     1.0f, 1.0f, 1.0f,	0.0f, 0.0f,
              0.5f, 0.0f,  0.5f,     1.0f, 1.0f, 1.0f,	5.0f, 0.0f,
-             0.0f, 0.8f,  0.0f,     1.0f, 1.0f, 1.0f,	2.5f, 5.0f
+             0.0f, 0.5f,  0.0f,     1.0f, 1.0f, 1.0f,	2.5f, 5.0f
         };
 
         // Indices for vertices order

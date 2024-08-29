@@ -42,7 +42,8 @@ namespace Engine {
             glm::radians(80.0f),
             (float) (Engine::window->width / Engine::window->height),
             0.01f,
-            100.0f);
+            100.0f
+        );
     }
     void Mesh::draw (std::shared_ptr<ShaderProgram> shader, std::shared_ptr<Texture> texture) {
         shader->activate();

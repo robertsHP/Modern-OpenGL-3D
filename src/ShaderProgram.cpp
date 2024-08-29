@@ -47,7 +47,7 @@ namespace Engine {
         // ensures ifstream objects can throw exceptions:
         file.exceptions (std::ifstream::badbit);
         try {
-            file.open("shaders/"+name);
+            file.open("../shaders/"+name);
             // Read file's buffer contents into streams
             fileStream << file.rdbuf();
             file.close();
