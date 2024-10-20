@@ -25,6 +25,8 @@ namespace Engine {
         public :
             int width, height;
             bool focused; //implement!!!
+
+            bool hasOpenGLContext = false;
         private:
             SDL_Window   *winPtr;
             SDL_GLContext openGLContext;

@@ -9,9 +9,20 @@ namespace Engine {
     void start () {
         window = std::make_unique<Window>("GFX Engine", 1024, 768);
         if(window) {
-            printOpenGLVersionInfo();
-            scene = std::make_unique<Scene>();
-            loop();
+            if (window->hasOpenGLContext) {
+                Debug::log("ERROR", "BRAWLZZ.");
+
+                printOpenGLVersionInfo();
+
+                Debug::log("ERROR", "AAAAAAAAAAAAAAAAAAAAAAAAA.");
+
+                scene = std::make_unique<Scene>();
+
+                Debug::log("ERROR", "BALLLZZ.");
+
+
+                loop();
+            }
         }
     }
     void loop () {

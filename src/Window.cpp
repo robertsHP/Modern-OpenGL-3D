@@ -15,6 +15,7 @@ namespace Engine {
             return;
         }
         if(!this->loadOpenGL(width, height)) {
+            Debug::log("ERROR", "Failed to initialize the OpenGL context.");
             return;
         }
     }
@@ -57,24 +58,33 @@ namespace Engine {
     bool Window::loadOpenGL (int width, int height) {
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
-        SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+        SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_COMPATIBILITY);
 
         //V-Sync
         SDL_GL_SetSwapInterval(1);
 
-        SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
-        SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
-        SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
-        SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
+        // SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
+        // SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
+        // SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
+        // SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
         SDL_GL_SetAttribute(SDL_GL_BUFFER_SIZE, 32);
         SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
         this->openGLContext = SDL_GL_CreateContext(this->winPtr);
 
-        if (!gladLoadGL()) {
-            Debug::log("ERROR", "Failed to initialize the OpenGL context.");
+        if (!this->openGLContext) {
+            std::string errMessage = SDL_GetError();
+            Debug::log("ERROR", "Failed to create OpenGL context: " + errMessage);
             return false;
         }
+
+        if (!gladLoadGL()) {
+            this->hasOpenGLContext = false;
+            return false;
+        }
+
+        this->hasOpenGLContext = true;
+
         glViewport(0, 0, width, height);
         glEnable(GL_DEPTH_TEST);
 
