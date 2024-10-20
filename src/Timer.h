@@ -3,7 +3,6 @@
 
 #include "SDL.h"
 
-#include "Global.h"
 #include "Debug.h"
 
 namespace Engine {

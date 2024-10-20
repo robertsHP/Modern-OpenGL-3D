@@ -1,7 +1,7 @@
 #ifndef EBO_H
 #define EBO_H
 
-#include "glad.h"
+#include "glad/glad.h"
 
 namespace Engine {
     class EBO {

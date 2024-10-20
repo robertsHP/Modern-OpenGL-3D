@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Find all source files in the src directory and its subdirectories
-file(GLOB SOURCES src/*.c src/*.cpp src/*.h src/*.hpp)
+file(GLOB_RECURSE SOURCES src/*.c src/*.cpp src/*.h src/*.hpp)
 
 # Include the current source directory in the include path
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})

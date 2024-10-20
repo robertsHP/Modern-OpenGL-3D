@@ -11,7 +11,7 @@
     #include <stdint.h>
 #endif
 
-#include "glad.h"
+#include "glad/glad.h"
 #include "GL/glu.h"
 #include "glm/ext.hpp"
 

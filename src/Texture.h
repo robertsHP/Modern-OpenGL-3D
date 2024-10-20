@@ -5,7 +5,6 @@
 #include "SDL.h"
 #include "SDL_image.h"
 
-#include "Global.h"
 #include "Debug.h"
 
 #include "ShaderProgram.h"

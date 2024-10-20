@@ -4,25 +4,23 @@
 #include <vector>
 #include "SDL.h"
 
-#include "Global.h"
-
 namespace Engine {
     class Input {
         public :
             std::vector<SDL_Event> keyEvents;
             std::vector<SDL_Event> mouseEvents;
-            U8 *keyBoardState;
-            U32 mouseState;
+            uint8_t *keyBoardState;
+            uint32_t mouseState;
 
             void update ();
-            bool ifCondApplyToKeyEventCont (U32 inputType, U8 scanCode, U8 repeatAmount);
-            bool ifCondApplyToMouseEventCont (U32 inputType, U8 scanCode, U8 clickAmount);
-            bool keyPressed (U8 scanCode);
-            bool keyReleased (U8 scanCode);
-            bool keyHeldDown (U8 scanCode);
-            bool mousePressed (U8 scanCode);
-            bool mouseReleased (U8 scanCode);
-            bool mouseHeldDown (U8 mask);
+            bool ifCondApplyToKeyEventCont (uint32_t inputType, uint8_t scanCode, uint8_t repeatAmount);
+            bool ifCondApplyToMouseEventCont (uint32_t inputType, uint8_t scanCode, uint8_t clickAmount);
+            bool keyPressed (uint8_t scanCode);
+            bool keyReleased (uint8_t scanCode);
+            bool keyHeldDown (uint8_t scanCode);
+            bool mousePressed (uint8_t scanCode);
+            bool mouseReleased (uint8_t scanCode);
+            bool mouseHeldDown (uint8_t mask);
     };
 }
 

@@ -12,7 +12,7 @@
 #endif
 
 #include "SDL.h"
-#include "glad.h"
+#include "glad/glad.h"
 #include "GL/glu.h"
 #include "SDL_opengl.h"
 #include "SDL_image.h"
