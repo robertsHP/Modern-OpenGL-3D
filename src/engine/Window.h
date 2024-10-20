@@ -34,7 +34,7 @@ namespace Engine {
             Input input;
         public:
             Window(std::string name, int width, int height);
-            virtual ~Window();
+            ~Window();
         private :
             bool initSDL ();
             bool loadWindow (std::string name, int width, int height);

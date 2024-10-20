@@ -1,20 +1,15 @@
 #include "Debug.h"
 
-#include <iostream>
-#include <fstream>
-#include <ctime>
-#include <sstream>
+namespace Engine {
+    std::string Debug::logText = "";
 
-namespace Engine::Debug {
-    std::string logText;
-
-    void print (std::string txt) {
+    void Debug::print (std::string txt) {
         std::cout << txt;
     }
-    void println (std::string txt) {
+    void Debug::println (std::string txt) {
         std::cout << txt << std::endl;
     }
-    void log (const std::string type, const std::string message, const std::string codeLoc) {
+    void Debug::log (const std::string type, const std::string message, const std::string codeLoc) {
         std::time_t currentTime;
         std::tm *localTime;
         std::stringstream stream;
@@ -34,7 +29,7 @@ namespace Engine::Debug {
         std::cout << stream.str() << std::endl;
         Debug::logText += stream.str();
     }
-    void saveLog () {
+    void Debug::saveLog () {
         std::time_t currentTime;
         std::tm *localTime;
         std::ofstream out;

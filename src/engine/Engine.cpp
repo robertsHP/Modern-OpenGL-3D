@@ -1,36 +1,31 @@
 #include "Engine.h"
 
 namespace Engine {
-    bool    isLooping;
-    int     fps = 0;
+    bool                    isLooping = true;
+    int                     fps = 0;
     std::unique_ptr<Window> window;
-    std::unique_ptr<Scene> scene;
+    std::unique_ptr<Scene>  scene;
 
-    void start () {
+    void init () {
         window = std::make_unique<Window>("GFX Engine", 1024, 768);
         if(window) {
             if (window->hasOpenGLContext) {
-                Debug::log("ERROR", "BRAWLZZ.");
-
                 printOpenGLVersionInfo();
-
-                Debug::log("ERROR", "AAAAAAAAAAAAAAAAAAAAAAAAA.");
-
-                scene = std::make_unique<Scene>();
-
-                Debug::log("ERROR", "BALLLZZ.");
-
-
-                loop();
             }
         }
     }
-    void loop () {
+    void setScene (std::unique_ptr<Scene> newScene) {
+        scene = newScene != nullptr ? 
+            std::move(newScene) 
+            : 
+            std::make_unique<Scene>();
+    }
+    void startLoop () {
         const int FRAME_DELAY = 1000 / 60;
+        
         int deltaTime = 0;
         int lastFrame, frameCount = 0, lastTime = 0;
 
-        isLooping = true;
         while(isLooping) {
             lastFrame = SDL_GetTicks();
             if(lastFrame >= (lastTime + 1000)) {
