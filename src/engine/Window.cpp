@@ -90,9 +90,10 @@ namespace Engine {
 
         return true;
     }
+
     void Window::clear () {
         SDL_GL_MakeCurrent(this->winPtr, this->openGLContext);
-        glClearColor(0.1f, 0.6f, 0.1f, 1.0f);
+        glClearColor(0.4f, 0.4f, 0.4f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     }
     void Window::refreshInput () {

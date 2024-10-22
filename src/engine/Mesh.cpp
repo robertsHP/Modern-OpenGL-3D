@@ -53,22 +53,24 @@ namespace Engine {
     void Mesh::update(float deltaTime) {
         this->rotation += 2.0f;
 
+        // Reset matrices
         model = glm::mat4(1.0f);
         view = glm::mat4(1.0f);
         proj = glm::mat4(1.0f);
 
+        // Apply rotation to the model matrix
         model = glm::rotate(model, glm::radians(this->rotation), glm::vec3(1.0f, 0.5f, 0.2f));
         view = glm::translate(view, glm::vec3(0.0f, 0.0f, -2.0f));
         proj = glm::perspective(
             glm::radians(80.0f),
-            (float)(Engine::window->width / Engine::window->height),
+            (float) (Engine::window->width / Engine::window->height),
             0.01f,
             100.0f
         );
     }
-
     void Mesh::draw(std::shared_ptr<ShaderProgram> shader, std::shared_ptr<Texture> texture) {
         shader->activate();
+
         shader->setFloat("scale", scale);
         shader->setMat4("model", model);
         shader->setMat4("view", view);
@@ -78,7 +80,9 @@ namespace Engine {
             texture->bind();
 
         this->vao.bind();
+
         glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(this->drawAmount), GL_UNSIGNED_INT, 0);
+
         this->vao.unbind();
 
         if (texture != nullptr)
@@ -87,3 +91,4 @@ namespace Engine {
         shader->deactivate();
     }
 }
+

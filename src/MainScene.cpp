@@ -38,7 +38,6 @@ MainScene::MainScene() {
 MainScene::~MainScene() {
     Engine::Debug::log("INFO", "Closing scene.");
 }
-
 void MainScene::input () {
     
 }
