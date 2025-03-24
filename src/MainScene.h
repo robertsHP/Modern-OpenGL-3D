@@ -12,7 +12,7 @@
 class MainScene : public Engine::Scene {
     private :
         std::shared_ptr<Engine::ShaderProgram> plainShader;
-        std::shared_ptr<Engine::Mesh> square;
+        std::shared_ptr<Engine::Mesh> mesh;
         std::shared_ptr<Engine::Texture> texture;
     public:
         MainScene();

@@ -33,7 +33,7 @@ MainScene::MainScene() {
     };
 
     // Create the mesh with the vectors
-    this->square = std::make_unique<Engine::Mesh>(vertices, indices);
+    this->mesh = std::make_unique<Engine::Mesh>(vertices, indices);
 }
 MainScene::~MainScene() {
     Engine::Debug::log("INFO", "Closing scene.");
@@ -42,9 +42,9 @@ void MainScene::input () {
     
 }
 void MainScene::update (float deltaTime) {
-    this->square->update(deltaTime);
+    this->mesh->update(deltaTime);
 }
 void MainScene::draw () {
-    this->square->draw(this->plainShader, this->texture);
+    this->mesh->draw(this->plainShader, this->texture);
 }
 
